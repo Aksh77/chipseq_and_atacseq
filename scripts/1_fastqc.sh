@@ -6,13 +6,13 @@
 #SBATCH --mem=40GB
 #SBATCH --partition=sla-prio
 #SBATCH --job-name=fastqc
-#SBATCH --output=/storage/group/sam77/default/lab/akshatha/logs/fastqc.out
+#SBATCH --output=/storage/group/sam77/default/lab/akshatha/predict_tf_binding/logs/fastqc.out
 umask 007
 
 source /storage/work/abn5461/miniforge3/bin/activate /storage/work/abn5461/miniforge3/envs/gene-env
-OUT_DIR=/storage/group/sam77/default/lab/akshatha/results/fastqc_reports
+OUT_DIR=/storage/group/sam77/default/lab/akshatha/predict_tf_binding/results/fastqc_reports
 
-cd /storage/group/sam77/default/lab/akshatha/data/oct4
+cd /storage/group/sam77/default/lab/akshatha/predict_tf_binding/data/oct4
 fastqc *fastq.gz -o $OUT_DIR
 
 mv ${OUT_DIR}/*.html ${OUT_DIR}/html/
