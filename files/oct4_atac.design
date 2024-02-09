@@ -1,0 +1,7 @@
+#DataFile	Signal/Control	FileFormat	ConditionName	ReplicateName
+ATAC_EB_rep1_MMR_sort.allo.sam.bam	signal	BAM	EB	1
+ATAC_EB_rep2_MMR_sort.allo.sam.bam	signal	BAM	EB	2
+input_EB_1_SV101_MMR_sort.allo.sam.bam	control	BAM	EB
+ATAC_EB+12h-iNIL_rep1_MMR_sort.allo.sam.bam	signal	BAM	EB+12h-iNIL	1
+ATAC_EB+12h-iNIL_rep2_MMR_sort.allo.sam.bam	signal	BAM	EB+12h-iNIL	2
+input_EB+12hr-iNIL_1_SV73_MMR_sort.allo.sam.bam	control	BAM	EB+12h-iNIL
