@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --account=sam77_h
-#SBATCH --time=48:00:00
+#SBATCH --time=72:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem=80GB
@@ -17,18 +17,18 @@ cd ~/group/lab/akshatha/predict_tf_binding/data/alignments/allo/bam
 MULTIGPS=~/group/code/jars/multigps.v0.75.mahonylab.jar
 GENOME_DIR=~/group/genomes/mm10
 
-MULTIGPS_OUT_CHIP=~/group/lab/akshatha/predict_tf_binding/data/peaks_multigps_chip
-DESIGN_FILE_CHIP=~/group/lab/akshatha/predict_tf_binding/files/oct4_chip.design
-
 MULTIGPS_OUT_ATAC=~/group/lab/akshatha/predict_tf_binding/data/peaks_multigps_atac
 DESIGN_FILE_ATAC=~/group/lab/akshatha/predict_tf_binding/files/oct4_atac.design
 
-# chipseq data
-mkdir -p $MULTIGPS_OUT_CHIP
-java -Xmx64G -jar $MULTIGPS --geninfo ${GENOME_DIR}/mm10.info --seq ${GENOME_DIR}/mm10.fa \
-    --design $DESIGN_FILE_CHIP --threads 10 --out $MULTIGPS_OUT_CHIP --exclude ${GENOME_DIR}/annotation/mm10-blacklist_ENCODE.regions
+MULTIGPS_OUT_CHIP=~/group/lab/akshatha/predict_tf_binding/data/peaks_multigps_chip2
+DESIGN_FILE_CHIP=~/group/lab/akshatha/predict_tf_binding/files/oct4_chip.design
 
 # atacseq data
 mkdir -p $MULTIGPS_OUT_ATAC
 java -Xmx64G -jar $MULTIGPS --geninfo ${GENOME_DIR}/mm10.info --seq ${GENOME_DIR}/mm10.fa \
     --design $DESIGN_FILE_ATAC --threads 10 --out $MULTIGPS_OUT_ATAC --exclude ${GENOME_DIR}/annotation/mm10-blacklist_ENCODE.regions
+
+# chipseq data
+mkdir -p $MULTIGPS_OUT_CHIP
+java -Xmx64G -jar $MULTIGPS --geninfo ${GENOME_DIR}/mm10.info --seq ${GENOME_DIR}/mm10.fa \
+    --design $DESIGN_FILE_CHIP --threads 10 --out $MULTIGPS_OUT_CHIP --exclude ${GENOME_DIR}/annotation/mm10-blacklist_ENCODE.regions
