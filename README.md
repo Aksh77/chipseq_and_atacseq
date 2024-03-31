@@ -1,1 +1,1 @@
-# predict_tf_binding
+# ChIP-seq and ATAC-seq
